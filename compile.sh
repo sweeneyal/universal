@@ -1,0 +1,1 @@
+ghdl -a --work=universal --std=08 TypeUtilityPkg.vhd
