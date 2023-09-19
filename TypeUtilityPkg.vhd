@@ -11,6 +11,7 @@ package TypeUtilityPkg is
     function CheckStringEqual(str1 : string; str2 : string) return boolean;
     function ToByte(char : character) return byte;
     function ToCharacter(by : byte) return character;
+    function Bool2Bit(value: boolean) return std_logic;
     
 end package TypeUtilityPkg;
 
@@ -43,6 +44,15 @@ package body TypeUtilityPkg is
     function ToCharacter(by : byte) return character is
     begin
         return character'val(to_integer(unsigned(by)));
+    end function;
+
+    function Bool2Bit(value : boolean) return std_logic is
+    begin
+        if value then
+            return '1';
+        else
+            return '0';
+        end if;
     end function;
     
 end package body TypeUtilityPkg;
