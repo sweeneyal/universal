@@ -23,5 +23,7 @@ package CommonTypesPkg is
     type s16_array_t is array (natural range <>) of s16_t;
     type s32_array_t is array (natural range <>) of s32_t;
     type s64_array_t is array (natural range <>) of s64_t;
+
+    type std_logic_matrix_t is array (natural range <>) of std_logic_vector;
     
 end package CommonTypesPkg;
