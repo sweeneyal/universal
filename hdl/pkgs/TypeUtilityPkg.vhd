@@ -8,6 +8,7 @@ package TypeUtilityPkg is
     
     function ToStdLogicVector(intVal : integer; size : natural) return std_logic_vector;
     function ToInteger(vector : std_logic_vector) return integer;
+    function ToNatural(vector : std_logic_vector) return natural;
     function CheckStringEqual(str1 : string; str2 : string) return boolean;
     function ToByte(char : character) return byte;
     function ToCharacter(by : byte) return character;
@@ -23,6 +24,11 @@ package body TypeUtilityPkg is
     end function;
 
     function ToInteger(vector : std_logic_vector) return integer is
+    begin
+        return to_integer(signed(vector));
+    end function;
+
+    function ToNatural(vector : std_logic_vector) return natural is
     begin
         return to_integer(unsigned(vector));
     end function;
