@@ -2,7 +2,7 @@ library ieee;
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
 
-package CommonTypesPkg is
+package CommonTypes is
     
     subtype u8_t is unsigned(7 downto 0);
     subtype u16_t is unsigned(15 downto 0);
@@ -54,9 +54,9 @@ package CommonTypesPkg is
 
     type std_logic_matrix_t is array (natural range <>) of std_logic_vector;
     
-end package CommonTypesPkg;
+end package CommonTypes;
 
-package body CommonTypesPkg is
+package body CommonTypes is
     
     function to_u8(val : natural) return u8_t is
     begin
@@ -154,4 +154,4 @@ package body CommonTypesPkg is
         return resize(signed(val), 64);
     end function;
     
-end package body CommonTypesPkg;
+end package body CommonTypes;
