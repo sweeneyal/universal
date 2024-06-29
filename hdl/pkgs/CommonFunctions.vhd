@@ -7,6 +7,9 @@ package CommonFunctions is
 
     subtype byte is std_logic_vector(7 downto 0);
     
+    function clog2(intVal : integer) return integer;
+    function reverse (a: in std_logic_vector) return std_logic_vector;
+
     function to_slv(intVal : integer; size : natural) return std_logic_vector;
     function to_integer(vector : std_logic_vector) return integer;
     function to_natural(vector : std_logic_vector) return natural;
@@ -34,6 +37,22 @@ end package CommonFunctions;
 
 package body CommonFunctions is
     
+    function clog2(intVal : integer) return integer is
+    begin 
+        return integer(ceil(log2(real(intVal))));
+    end function;
+
+    function reverse (a: in std_logic_vector) return std_logic_vector is
+        variable result: std_logic_vector(a'RANGE);
+        alias aa: std_logic_vector(a'REVERSE_RANGE) is a;
+    begin
+        for i in aa'RANGE loop
+            result(i) := aa(i);
+        end loop;
+        return result;
+    end;
+
+
     function to_slv(intVal : integer; size : natural) return std_logic_vector is
     begin
         return std_logic_vector(to_signed(intVal, size));
